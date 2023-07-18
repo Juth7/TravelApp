@@ -1,0 +1,68 @@
+  .content {
+    background-color: #c5cae9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    overflow-x: auto;
+  }
+  
+  .selectState {
+    width: 50%;
+  }
+  
+  .table {
+    margin: 0.5rem;
+    background-color: whitesmoke;
+    text-align: center;
+    border-collapse: collapse;  
+  }
+  .table thead {
+    background-color: #c5cae9;
+  }
+  .table thead th {
+    text-align: center;
+  }
+  .table td {
+    padding: 15px;
+  }
+  
+  .table th {
+    text-align: left;
+    padding: 25px;
+    width: 700px;
+    color: black;
+  }
+  
+  tbody > tr:nth-child(odd) {
+    color: black;
+  }
+  
+  tbody > tr:nth-child(even) {
+    background-color: #c5cae9;
+    color: black;
+  }
+  
+  tbody > tr:nth-child(odd) .buttonDelete {
+    color: black;
+    background-color: #c5cae9;
+  }
+  
+  tbody > tr:nth-child(even) .buttonDelete {
+    background-color: whitesmoke;
+    color: #cecece;
+  }
+  .buttonDelete {
+    max-width: 100px;
+  }
+  .buttonDelete:hover {
+    opacity: 85%;
+    transition: 0.3s;
+  }
+  
+  .buttonsRow {
+    display: flex;
+    justify-content: space-around;
+  }
