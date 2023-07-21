@@ -21,7 +21,7 @@ function Destacados(){
                     return (
                         <CardsD
                             key={p.title}
-                            image={p.images}
+                            image={p.image}
                             title={p.title}
                             location={p.location}
                             score={p.score}
