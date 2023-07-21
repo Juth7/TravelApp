@@ -1,21 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { BsPerson } from "react-icons/bs";
-import { FaShoppingCart, FaHeart } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
+import { BsPerson } from "react-icons/bs";
+import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
+import { Link } from "react-router-dom";
 //import { useUser } from '../hooks/useUser';
+import { useDispatch, useSelector } from "react-redux";
 import { Logout, getIsAdmin } from "../actions";
-import { useDispatch } from "react-redux";
-import __ from "lodash";
-import { useSelector } from "react-redux";
 
 function Navbar() {
   const user = window.localStorage.getItem("user") || "";
   const [nav, setNav] = useState(false);
   const [logo, setLogo] = useState(false);
   const admin = useSelector((state) => state.isAdmin);
-  console.log("adminNav", admin);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -55,7 +52,6 @@ function Navbar() {
       </ul>
       {/* ICONOS */}
       <div className="hidden md:flex">
-        
         {!user ? (
           <Link to="/login">
             {" "}
@@ -68,7 +64,7 @@ function Navbar() {
             </Link>
             <Link to="/shopping">
               {" "}
-            <FaShoppingCart className="mr-2" size={20} />{" "}
+              <FaShoppingCart className="mr-2" size={20} />{" "}
             </Link>
             <span className="mx-5 fw-500">Hola, {user.toUpperCase()} ♥</span>
 
@@ -101,7 +97,10 @@ function Navbar() {
             {" "}
             <Link to="/destination">DESTINOS</Link>{" "}
           </li>
-          <li> {admin ? <Link to="/admin/profile">PANEL ADMIN</Link> : null} </li>
+          <li>
+            {" "}
+            {admin ? <Link to="/admin/profile">PANEL ADMIN</Link> : null}{" "}
+          </li>
           <li>
             {" "}
             <Link to="/about">ACERCA DE</Link>{" "}
