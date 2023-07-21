@@ -1,11 +1,10 @@
 import {
+  addItemFromCartInCart,
   addItemToCart,
-  addItemToWish,
+  removeAllItemsFromCart,
   removeAllItemsFromWish,
+  removeItemFromCart
 } from "../cart-utils/index";
-import { removeItemFromCart } from "../cart-utils/index";
-import { addItemFromCartInCart } from "../cart-utils/index";
-import { removeAllItemsFromCart } from "../cart-utils/index";
 
 const initialState = {
   plains: [],
@@ -234,7 +233,6 @@ function rootReducer(state = initialState, action) {
         plains: state.plains.filter((plain) => plain._id !== action.payload),
       };
     case "GET_IS_ADMIN":
-      console.log("isAdmin", action.payload);
       return {
         ...state,
         isAdmin: action.payload,
