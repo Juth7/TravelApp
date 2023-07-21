@@ -102,9 +102,7 @@ export function clearState(payload) {
 }
 export function getPlainsDestacados() {
   return async function (dispatch) {
-    var json = await axios.get("https://travelapp-x6lf.onrender.com/getplains", {
-      headers: { Authorization: "Bearer " + localStorage.getItem("token") },
-    });
+    var json = await axios.get("https://travelapp-x6lf.onrender.com/getplains");
     //console.log(json.data)
     return dispatch({
       type: "GET_PLAINS_DESTACADOS",
