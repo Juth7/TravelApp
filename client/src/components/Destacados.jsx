@@ -17,7 +17,7 @@ function Destacados(){
             <h1 className='py-2 text-center text-indigo-300 '>Destinos Recomendados</h1>
             <hr className='py-4  border-gray-300' style={{ color: '#14b8a6' }} />
             <div className='grid grid-cols-4 gap-4'>
-                {PlainsDescatados && PlainsDescatados.map((p) => {
+                {PlainsDescatados?.map((p) => {
                     return (
                         <CardsD
                             key={p.title}
