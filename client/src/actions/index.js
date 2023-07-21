@@ -170,7 +170,7 @@ export function signin(data) {
         data
       );
       // window.localStorage.setItem("test", JSON.stringify(response.data));
-      console.log("status", response.status);
+      "status", response.status);
       if (response.status === 200) {
         window.localStorage.setItem("token", response.data.token);
         window.localStorage.setItem("user", response.data.username);
@@ -265,7 +265,6 @@ export function updatePlain(id, plains) {
           headers: { Authorization: "Bearer " + localStorage.getItem("token") },
         }
       );
-      console.log("update", data);
       return dispatch({
         type: "UPDATE_PLAIN",
         payload: data,
