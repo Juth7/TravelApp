@@ -31,8 +31,8 @@ server.use(
     useDefaults: true,
     directives: {
       "img-src": ["'self'", "https: data:"],
-      "script-src": ["https://js.stripe.com/", "https://checkout.stripe.com/", "http://localhost:8800/", "https://apis.google.com/", "https://apis.google.com/js/api.js"],
-      'script-src-elem': ["https://js.stripe.com/", "https://checkout.stripe.com/", "http://localhost:8800/", "https://apis.google.com/", "https://apis.google.com/js/api.js"],  
+      "script-src": ["https://js.stripe.com/", "https://checkout.stripe.com/", "https://travelapp-x6lf.onrender.com/", "https://apis.google.com/", "https://apis.google.com/js/api.js"],
+      'script-src-elem': ["https://js.stripe.com/", "https://checkout.stripe.com/", "https://travelapp-x6lf.onrender.com/", "https://apis.google.com/", "https://apis.google.com/js/api.js"],  
       'frame-src': ["https://checkout.stripe.com/", "https://accounts.google.com/"]
     },
   })

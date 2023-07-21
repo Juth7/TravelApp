@@ -5,7 +5,7 @@ const axios = require("axios");
 export function searchDestination(name) {
   return async function (dispatch) {
     let response = await axios.get(
-      "http://localhost:8800/getplains?location=" + name
+      "https://travelapp-x6lf.onrender.com/getplains?location=" + name
     );
     return dispatch({
       type: "SEARCH_DESTINATION",
@@ -16,7 +16,7 @@ export function searchDestination(name) {
 
 export function getPlains() {
   return async function (dispatch) {
-    var json = await axios.get("http://localhost:8800/getplains");
+    var json = await axios.get("https://travelapp-x6lf.onrender.com/getplains");
     //console.log(json.data)
     return dispatch({
       type: "GET_PLAINS",
@@ -27,7 +27,7 @@ export function getPlains() {
 
 export function getDetailId(id) {
   return async function (dispatch) {
-    let response = await axios.get("http://localhost:8800/getDetails/" + id);
+    let response = await axios.get("https://travelapp-x6lf.onrender.com/getDetails/" + id);
     //console.log('juth', response.data)
     return dispatch({
       type: "GET_DETAIL",
@@ -37,7 +37,7 @@ export function getDetailId(id) {
 }
 export function getDashboardAdmin() {
   return async function (dispatch) {
-    let response = await axios.get("http://localhost:8800/getDashboardAdmin", {
+    let response = await axios.get("https://travelapp-x6lf.onrender.com/getDashboardAdmin", {
       headers: { Authorization: "Bearer " + localStorage.getItem("token") },
     });
     if (response.status === 200) {
@@ -56,7 +56,7 @@ export function getDashboardAdmin() {
 
 export function postPlain(data) {
   return async function (dispatch) {
-    let response = await axios.post("http://localhost:8800/postPlains", data, {
+    let response = await axios.post("https://travelapp-x6lf.onrender.com/postPlains", data, {
       headers: { Authorization: "Bearer " + localStorage.getItem("token") },
     });
     //console.log('agus', response.data)
@@ -102,7 +102,7 @@ export function clearState(payload) {
 }
 export function getPlainsDestacados() {
   return async function (dispatch) {
-    var json = await axios.get("http://localhost:8800/getplains");
+    var json = await axios.get("https://travelapp-x6lf.onrender.com/getplains");
     //console.log(json.data)
     return dispatch({
       type: "GET_PLAINS_DESTACADOS",
@@ -121,7 +121,7 @@ export function googleLogIn(payload) {
   try {
     return async (dispatch) => {
       const res = await axios.post(
-        "http://localhost:8800/auth/google",
+        "https://travelapp-x6lf.onrender.com/auth/google",
         payload
       );
       const token = res.data.token;
@@ -166,7 +166,7 @@ export function signin(data) {
   try {
     return async function (dispatch) {
       let response = await axios.post(
-        "http://localhost:8800/auth/signin",
+        "https://travelapp-x6lf.onrender.com/auth/signin",
         data
       );
       // window.localStorage.setItem("test", JSON.stringify(response.data));
@@ -176,7 +176,7 @@ export function signin(data) {
         window.localStorage.setItem("user", response.data.username);
         window.localStorage.setItem("id", response.data.id);
         const { data } = await axios.post(
-          "http://localhost:8800/wishlist/create",
+          "https://travelapp-x6lf.onrender.com/wishlist/create",
           { userId: response.data.id },
           {
             headers: {
@@ -206,7 +206,7 @@ export function signup(data) {
   try {
     return async function (dispatch) {
       let response = await axios.post(
-        "http://localhost:8800/auth/signup",
+        "https://travelapp-x6lf.onrender.com/auth/signup",
         data
       );
       //console.log('juthUP', response.data)
@@ -259,7 +259,7 @@ export function updatePlain(id, plains) {
   return async function (dispatch) {
     try {
       const { data } = await axios.patch(
-        "http://localhost:8800/updateplain/" + id,
+        "https://travelapp-x6lf.onrender.com/updateplain/" + id,
         plains,
         {
           headers: { Authorization: "Bearer " + localStorage.getItem("token") },
@@ -279,7 +279,7 @@ export function updatePlain(id, plains) {
 export function deletePlain(id) {
   return async function (dispatch) {
     try {
-      await axios.delete("http://localhost:8800/deleteplain/" + id, {
+      await axios.delete("https://travelapp-x6lf.onrender.com/deleteplain/" + id, {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       });
       console.log("delete", id);
@@ -296,7 +296,7 @@ export function deletePlain(id) {
 export function getProvince() {
   return async function (dispatch) {
     try {
-      var json = await axios.get("http://localhost:8800/apiLugares/provincias");
+      var json = await axios.get("https://travelapp-x6lf.onrender.com/apiLugares/provincias");
       //console.log(json.data)
       return dispatch({
         type: "GET_PROVINCE",
@@ -310,7 +310,7 @@ export function getProvince() {
 export function getCity(id) {
   return async function (dispatch) {
     var json = await axios.get(
-      "http://localhost:8800/apiLugares/ciudades/" + id
+      "https://travelapp-x6lf.onrender.com/apiLugares/ciudades/" + id
     );
     //console.log(json.data)
     return dispatch({
@@ -323,7 +323,7 @@ export function getCity(id) {
 export function getIsAdmin() {
   return async function (dispatch) {
     try {
-      const response = await axios.get("http://localhost:8800/checkAdmin/", {
+      const response = await axios.get("https://travelapp-x6lf.onrender.com/checkAdmin/", {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       });
       console.log("actionadmin", response.status);
@@ -352,7 +352,7 @@ export function addItemToWish(id) {
   console.log(id);
   return async function (dispatch) {
     let response = await axios.put(
-      "http://localhost:8800/wishlist/additem",
+      "https://travelapp-x6lf.onrender.com/wishlist/additem",
       {
         userId: localStorage.getItem("id"),
         plainId: id,
@@ -385,7 +385,7 @@ export function checkout(dataCheckout) {
         token: dataCheckout.token,
       };
       let response = await axios.post(
-        "http://localhost:8800/checkout",
+        "https://travelapp-x6lf.onrender.com/checkout",
         data, // todo: implementar mapeo de servicios
         {
           headers: { Authorization: "Bearer " + localStorage.getItem("token") },
@@ -408,7 +408,7 @@ export function checkout(dataCheckout) {
 export function addReview(id, data) {
   return async function (dispatch) {
     let response = await axios.patch(
-      "http://localhost:8800/postreview/" + id,
+      "https://travelapp-x6lf.onrender.com/postreview/" + id,
       data,
       {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
@@ -424,7 +424,7 @@ export function addReview(id, data) {
 export function getUsers() {
   return async function (dispach) {
     try {
-      const res = await axios.get("http://localhost:8800/getusers");
+      const res = await axios.get("https://travelapp-x6lf.onrender.com/getusers");
       //	console.log(res);
       return dispach({
         type: "GET_ALL_USERS",
@@ -439,7 +439,7 @@ export function getUsers() {
 export function getOrders() {
   return async (dispatch) => {
     try {
-      const res = await axios.get("http://localhost:8800/orders/allorders");
+      const res = await axios.get("https://travelapp-x6lf.onrender.com/orders/allorders");
       return dispatch({
         type: "GET_ALL_ORDERS",
         payload: res.data,
@@ -454,7 +454,7 @@ export function rolAdmin(id, email) {
   return async function (dispatch) {
     try {
       const { data } = await axios.put(
-        "http://localhost:8800/updateuser/addadmin/" + id,
+        "https://travelapp-x6lf.onrender.com/updateuser/addadmin/" + id,
         email,
         {
           headers: { Authorization: "Bearer " + localStorage.getItem("token") },
@@ -474,7 +474,7 @@ export function rolAdmin(id, email) {
 export function bloquearUser(id, email) {
   return async function (dispatch) {
     let response = await axios.put(
-      "http://localhost:8800/updateuser/addban/" + id,
+      "https://travelapp-x6lf.onrender.com/updateuser/addban/" + id,
       email,
       {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
@@ -490,7 +490,7 @@ export function bloquearUser(id, email) {
 export function desbloquearUser(id, email) {
   return async function (dispatch) {
     let response = await axios.put(
-      "http://localhost:8800/updateuser/removeban/" + id,
+      "https://travelapp-x6lf.onrender.com/updateuser/removeban/" + id,
       email,
       {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
@@ -505,7 +505,7 @@ export function desbloquearUser(id, email) {
 export function deleteUser(id) {
   return async function (dispatch) {
     try {
-      await axios.delete("http://localhost:8800/updateuser/delete/" + id, {
+      await axios.delete("https://travelapp-x6lf.onrender.com/updateuser/delete/" + id, {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       });
       console.log("Usuario eliminado", id);
@@ -523,7 +523,7 @@ export function getWishUser(id) {
     console.log(localStorage.getItem("id"));
     console.log(localStorage.getItem("token"));
     let response = await axios.get(
-      "http://localhost:8800/wishlist/" + id,
+      "https://travelapp-x6lf.onrender.com/wishlist/" + id,
       // {
       //   userId: localStorage.getItem("id"),
       // },
@@ -543,7 +543,7 @@ export function getWishUser(id) {
 export function removeItemWL(id) {
   return async function (dispatch) {
     let response = await axios.put(
-      "http://localhost:8800/wishlist/deletewl",
+      "https://travelapp-x6lf.onrender.com/wishlist/deletewl",
       {
         userId: localStorage.getItem("id"),
         plainId: id,
@@ -565,7 +565,7 @@ export function createWishlist(userId) {
     return async function (dispatch) {
       // const userId = localStorage.getItem("id");
       const { data } = await axios.post(
-        "http://localhost:8800/wishlist/create",
+        "https://travelapp-x6lf.onrender.com/wishlist/create",
         userId,
         {
           headers: { Authorization: "Bearer " + localStorage.getItem("token") },
