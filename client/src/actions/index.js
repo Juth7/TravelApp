@@ -124,8 +124,8 @@ export function setCurrentUser(users) {
   };
 }
 export function googleLogIn(payload) {
+  return async (dispatch) => {
   try {
-    return async (dispatch) => {
       const res = await axios.post(
         "https://travelapp-x6lf.onrender.com/auth/google",
         payload
@@ -162,9 +162,9 @@ export function googleLogIn(payload) {
       //   role: role,
       //   id: id,
       // };
+    } catch (error) {
+      console.log(error);
     };
-  } catch (error) {
-    console.log(error);
   }
 }
 
