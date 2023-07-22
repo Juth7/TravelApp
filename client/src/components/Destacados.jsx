@@ -21,12 +21,12 @@ function Destacados() {
         {PlainsDescatados?.map((p) => {
           return (
             <CardsD
-              key={p.title}
+              key={p && p.title && p.title}
               image={p && p.image && p.image}
-              title={p.title}
-              location={p.location}
-              score={p.score}
-              id={p.id}
+              title={p && p.title && p.title}
+              location={p && p.location && p.location}
+              score={p && p.score && p.score}
+              id={p && p.id && p.id}
             />
           );
         })}

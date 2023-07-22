@@ -102,14 +102,20 @@ export function clearState(payload) {
 }
 export function getPlainsDestacados() {
   return async function (dispatch) {
-    var json = await axios.get("https://travelapp-x6lf.onrender.com/getplains");
-    //console.log(json.data)
-    return dispatch({
-      type: "GET_PLAINS_DESTACADOS",
-      payload: json.data,
-    });
+  try {
+      var json = await axios.get("https://travelapp-x6lf.onrender.com/getplains");
+      //console.log(json.data)
+      return dispatch({
+        type: "GET_PLAINS_DESTACADOS",
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
+
+
 
 export function setCurrentUser(users) {
   return {
