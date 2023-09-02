@@ -1,15 +1,13 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { FaHeart, FaHome, FaShoppingCart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import {
-  getPlains,
   filterByProvince,
+  getPlains,
   orderByPrice,
   orderByScore,
 } from "../actions";
-import { FaHome } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { FaShoppingCart, FaHeart } from "react-icons/fa";
 
 export default function Filters({ setPage }) {
   const dispatch = useDispatch();
@@ -85,7 +83,7 @@ export default function Filters({ setPage }) {
       </select>
       {user ? (
         <div className="flex items-center">
-          <a href="http://localhost:3000/wishlist">
+          <a href="/wishlist">
             <FaHeart className="mr-2 text-white" size={20} />
           </a>
           <button>
