@@ -131,7 +131,7 @@ export function googleLogIn(payload) {
         payload
       );
       const token = res.data.token;
-      const role = res.data.role;
+      // const role = res.data.role;
       const id = res.data.id;
       const username = res.data.username;
       window.localStorage.setItem("token", token);
@@ -169,8 +169,8 @@ export function googleLogIn(payload) {
 }
 
 export function signin(data) {
+  return async function (dispatch) {
   try {
-    return async function (dispatch) {
       let response = await axios.post(
         "https://travelapp-x6lf.onrender.com/auth/signin",
         data
@@ -193,7 +193,7 @@ export function signin(data) {
         return dispatch(
           {
             type: "SIGNIN",
-            payload: response.data,
+            payload: data,
           }((window.location.href = "/"))
         );
       } else {
@@ -202,15 +202,15 @@ export function signin(data) {
           icon: "error",
         });
       }
+    } catch (error) {
+      console.log(error);
+    }
     };
-  } catch (error) {
-    console.log(error);
-  }
 }
 
 export function signup(data) {
-  try {
-    return async function (dispatch) {
+  return async function (dispatch) {
+      try {
       let response = await axios.post(
         "https://travelapp-x6lf.onrender.com/auth/signup",
         data
@@ -227,10 +227,10 @@ export function signup(data) {
           icon: "error",
         });
       }
-    };
-  } catch (error) {
-    console.log(error);
-  }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 export const Logout = () => {
@@ -381,8 +381,8 @@ export const removeAllItemsFromWish = (item) => ({
 });
 
 export function checkout(dataCheckout) {
+  return async function (dispatch) {
   try {
-    return async function (dispatch) {
       const data = {
         userId: localStorage.getItem("id"),
         plains: dataCheckout.plains,
@@ -405,10 +405,10 @@ export function checkout(dataCheckout) {
       } else {
         console.log("Cosas");
       }
-    };
-  } catch (error) {
-    console.log(error);
-  }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 export function addReview(id, data) {
@@ -567,8 +567,8 @@ export function removeItemWL(id) {
   };
 }
 export function createWishlist(userId) {
+  return async function (dispatch) {
   try {
-    return async function (dispatch) {
       // const userId = localStorage.getItem("id");
       const { data } = await axios.post(
         "https://travelapp-x6lf.onrender.com/wishlist/create",
@@ -582,8 +582,8 @@ export function createWishlist(userId) {
         type: "CREATE_WISHLIST",
         payload: data,
       });
-    };
-  } catch (error) {
-    console.log(error);
-  }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }

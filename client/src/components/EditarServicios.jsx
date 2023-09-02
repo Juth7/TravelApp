@@ -1,13 +1,10 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getDetailId, updatePlain, getIsAdmin } from "../actions";
-import swal from "sweetalert";
-import regsVideo from "../assets/pexels-cottonbro-5329613.mp4";
-import { Link, useParams } from "react-router-dom";
-import { validate } from "./validate";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
 import { FaUpload } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import swal from "sweetalert";
+import { getDetailId, getIsAdmin, updatePlain } from "../actions";
+import regsVideo from "../assets/pexels-cottonbro-5329613.mp4";
 
 const selectLugares = [
   {
@@ -31,10 +28,10 @@ const selectLugares = [
 export default function EditarServicios() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const [errors, setErrors] = useState({});
+  const [errors] = useState({});
   const info = useSelector((state) => state.detail);
   const admin = useSelector((state) => state.isAdmin);
-  const [imageText, setImageText] = useState(
+  const [imageText] = useState(
     "Presione para agregar imagen al carrusel de imagenes"
   );
 

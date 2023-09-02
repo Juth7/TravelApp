@@ -1,5 +1,3 @@
-import swal from 'sweetalert';
-
 export const addItemToCart = (cartItems, cartItemToAdd) => {
     console.log("En detalle: ", cartItemToAdd.quantity)
 	const existingCartItem = cartItems.find(

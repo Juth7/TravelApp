@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './About.css';
+import "./About.css";
 function About() {
   return (
     <div className="w-full h-screen relative">
@@ -49,7 +49,11 @@ function About() {
             <h3>Albamar Flores</h3>
             <h4>Full-Stack Developer</h4>
             <span className="links-container">
-              <a href="https://www.linkedin.com/in/albamarfdc" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/albamarfdc"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <img
                   src="https://raw.githubusercontent.com/AlanMauricioCastillo/Portfolio/master/public/stikersDeContacto/linked-in-alt.svg"
                   alt=""
@@ -58,7 +62,11 @@ function About() {
                   className="icon"
                 />
               </a>
-              <a href="https://github.com/Albamarfdc" target="_blank">
+              <a
+                href="https://github.com/Albamarfdc"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <img
                   src="https://raw.githubusercontent.com/AlanMauricioCastillo/Portfolio/master/public/GitHubImg.png"
                   alt=""
@@ -84,6 +92,7 @@ function About() {
             <span className="links-container">
               <a
                 href="https://www.linkedin.com/in/agustina-paez-a1a208194/"
+                rel="noreferrer"
                 target="_blank"
               >
                 <img
@@ -94,7 +103,11 @@ function About() {
                   className="icon"
                 />
               </a>
-              <a href="https://github.com/AgustinaPaez" target="_blank">
+              <a
+                href="https://github.com/AgustinaPaez"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <img
                   src="https://raw.githubusercontent.com/AlanMauricioCastillo/Portfolio/master/public/GitHubImg.png"
                   alt=""
@@ -121,6 +134,7 @@ function About() {
             <span className="links-container">
               <a
                 href="https://www.linkedin.com/in/alejandro-coniglio/"
+                rel="noreferrer"
                 target="_blank"
               >
                 <img
@@ -131,7 +145,11 @@ function About() {
                   className="icon"
                 />
               </a>
-              <a href="https://github.com/aleconiglio16" target="_blank">
+              <a
+                href="https://github.com/aleconiglio16"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <img
                   src="https://raw.githubusercontent.com/AlanMauricioCastillo/Portfolio/master/public/GitHubImg.png"
                   alt=""
@@ -158,6 +176,7 @@ function About() {
             <span className="links-container">
               <a
                 href="https://www.linkedin.com/in/andrea-ovalles-developer/"
+                rel="noreferrer"
                 target="_blank"
               >
                 <img
@@ -168,7 +187,11 @@ function About() {
                   className="icon"
                 />
               </a>
-              <a href="https://github.com/Andynv" target="_blank">
+              <a
+                href="https://github.com/Andynv"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <img
                   src="https://raw.githubusercontent.com/AlanMauricioCastillo/Portfolio/master/public/GitHubImg.png"
                   alt=""
@@ -193,7 +216,11 @@ function About() {
             <h3>Carlos Diaz</h3>
             <h4>Full-Stack Developer</h4>
             <span className="links-container">
-              <a href="https://www.linkedin.com/in/carlos13df/" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/carlos13df/"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <img
                   src="https://raw.githubusercontent.com/AlanMauricioCastillo/Portfolio/master/public/stikersDeContacto/linked-in-alt.svg"
                   alt=""
@@ -202,7 +229,11 @@ function About() {
                   className="icon"
                 />
               </a>
-              <a href="https://github.com/Carlos13-Lab" target="_blank">
+              <a
+                href="https://github.com/Carlos13-Lab"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <img
                   src="https://raw.githubusercontent.com/AlanMauricioCastillo/Portfolio/master/public/GitHubImg.png"
                   alt=""
@@ -229,6 +260,7 @@ function About() {
             <span className="links-container">
               <a
                 href="https://www.linkedin.com/in/gianluca-brunner/"
+                rel="noreferrer"
                 target="_blank"
               >
                 <img
@@ -239,7 +271,11 @@ function About() {
                   className="icon"
                 />
               </a>
-              <a href="https://github.com/gianbr" target="_blank">
+              <a
+                href="https://github.com/gianbr"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <img
                   src="https://raw.githubusercontent.com/AlanMauricioCastillo/Portfolio/master/public/GitHubImg.png"
                   alt=""
@@ -266,6 +302,7 @@ function About() {
             <span className="links-container">
               <a
                 href="https://www.linkedin.com/in/joaquingplante/"
+                rel="noreferrer"
                 target="_blank"
               >
                 <img
@@ -278,6 +315,7 @@ function About() {
               </a>
               <a
                 href="https://github.com/Joaquin-Garcia-Plante"
+                rel="noreferrer"
                 target="_blank"
               >
                 <img
@@ -306,6 +344,7 @@ function About() {
             <span className="links-container">
               <a
                 href="https://www.linkedin.com/in/maria-judith-lara-goncalves/?originalSubdomain=ve"
+                rel="noreferrer"
                 target="_blank"
               >
                 <img
@@ -316,7 +355,11 @@ function About() {
                   className="icon"
                 />
               </a>
-              <a href="https://github.com/Juth7" target="_blank">
+              <a
+                href="https://github.com/Juth7"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <img
                   src="https://raw.githubusercontent.com/AlanMauricioCastillo/Portfolio/master/public/GitHubImg.png"
                   alt=""
@@ -331,6 +374,5 @@ function About() {
       </div>
     </div>
   );
-    
 }
 export default About;

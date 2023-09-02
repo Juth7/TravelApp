@@ -21,7 +21,7 @@ function Destacados() {
         {PlainsDescatados?.map((p) => {
           return (
             <CardsD
-              key={p && p.title && p.title}
+              key={p && p.id}
               image={p && p.image && p.image}
               title={p && p.title && p.title}
               location={p && p.location && p.location}

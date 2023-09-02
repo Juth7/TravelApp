@@ -1,12 +1,9 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { postPlain, getCity, getProvince, getIsAdmin } from "../actions";
-import swal from "sweetalert";
-import regsVideo from "../assets/pexels-cottonbro-5329613.mp4";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { validarServicios } from "./validarServicios";
-import { useSelector } from "react-redux";
+import swal from "sweetalert";
+import { getIsAdmin, postPlain } from "../actions";
+import regsVideo from "../assets/pexels-cottonbro-5329613.mp4";
 import NoAcceso from "./NoAcceso";
 
 const selectLugares = [
@@ -30,8 +27,7 @@ const selectLugares = [
 
 export default function CreateForm() {
   const dispatch = useDispatch();
-  const [errors, setErrors] = useState({});
-  const lugares = useSelector((state) => state.lugares);
+  const [errors] = useState({});
   const admin = useSelector((state) => state.isAdmin);
   const [provincia, setProvincia] = useState(-1);
 
@@ -139,7 +135,6 @@ export default function CreateForm() {
         images: [...plain.images, base64],
       });
     }
-   
   };
 
   function handleSubmit(e) {
@@ -378,7 +373,7 @@ export default function CreateForm() {
           {/* FIN DEL FORMULARIO */}
         </div>
       ) : (
-        <NoAcceso/>
+        <NoAcceso />
       )}
     </>
   );

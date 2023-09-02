@@ -12,7 +12,8 @@ var PlainSchema = new mongoose.Schema({
   included: String,
   description: String,
   date: [String],
-});
+},
+);
 
 var Plain = mongoose.model("Plain", PlainSchema);
 

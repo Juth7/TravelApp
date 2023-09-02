@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory, useParams } from "react-router-dom";
+import swal from "sweetalert";
+import { v4 as uuid } from "uuid";
 import {
-  getDetailId,
-  clearState,
   addItem,
-  deletePlain,
   addItemToWish,
+  clearState,
+  deletePlain,
+  getDetailId,
 } from "../actions/index";
-import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import Calendario from "./Calendario";
 import Carousel from "./Carousel";
 import CarouselCom from "./CarouselCom";
-import Calendario from "./Calendario";
-import { v4 as uuid } from "uuid";
-import swal from "sweetalert";
-import __ from "lodash";
 import UserReviews from "./UserReviews";
 
 function Details() {
@@ -22,7 +20,7 @@ function Details() {
   const dispatch = useDispatch();
   const detail = useSelector((state) => state.detail);
   const [item, setItem] = useState({}); //Estado para construir item y agregarlo al carrito
-  const [disabled, setDisabled] = useState(true);
+  const [, setDisabled] = useState(true);
   const user = localStorage.getItem("user");
   const cart = useSelector((state) => state.cartPlains);
   const admin = useSelector((state) => state.isAdmin);
@@ -49,19 +47,23 @@ function Details() {
   console.log(item);
 
   const handleAddCart = () => {
-    if(!item.date && !item.quantity){
-      return swal("Error", "Debe seleccionar una fecha y una cantidad", "error");
-    }else if (!item.date) {
+    if (!item.date && !item.quantity) {
+      return swal(
+        "Error",
+        "Debe seleccionar una fecha y una cantidad",
+        "error"
+      );
+    } else if (!item.date) {
       return swal({
         title: "¡Seleccione una fecha!",
         icon: "error",
       });
-    }else if(!item.quantity){
+    } else if (!item.quantity) {
       return swal({
         title: "¡Seleccione cantidad de personas!",
         icon: "error",
       });
-    }else {
+    } else {
       dispatch(
         addItem({
           ...item,
@@ -116,11 +118,11 @@ function Details() {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        swal ("¡Eliminado!", "El paquete ha sido eliminado", "success");
+        swal("¡Eliminado!", "El paquete ha sido eliminado", "success");
         dispatch(deletePlain(id));
         history.push("/destination");
       }
-    })
+    });
   };
 
   console.log("score", detail?.score);
@@ -294,7 +296,7 @@ function Details() {
           <CarouselCom />
         </div>
         <UserReviews />
-        <div className="flex justify-center gap-56 mb-4 text-1xl font-mono text-teal-500 mb-10">
+        <div className="flex justify-center gap-56 mb-4 text-1xl font-mono text-teal-500">
           <Link to="/destination">
             <button className="rounded-2xl py-2 p-3 focus:outline-none focus:ring focus:ring-indigo-500 bg-indigo-400 hover:bg-indigo-300 relative text-white font-semibold">
               VOLVER

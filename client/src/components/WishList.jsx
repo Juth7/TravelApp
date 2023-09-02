@@ -1,33 +1,17 @@
 /* import React, { useState, useEffect } from 'react' */
-import { useSelector, useDispatch } from "react-redux";
-import Footer from "./Footer";
-import { Link } from "react-router-dom";
-import { FaTrash } from "react-icons/fa";
-import {
-  getWishUser,
-  removeAllItemsFromWish,
-  removeItemWL,
-} from "../actions/index";
-import imagen from "../assets/sin autorizacion.png";
-import NoAcceso from "./NoAcceso";
-import { useEffect, useState } from "react";
 import __ from "lodash";
+import { FaTrash } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { removeItemWL } from "../actions/index";
+import Footer from "./Footer";
+import NoAcceso from "./NoAcceso";
 
 function WishList() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.wishList);
   const user = window.localStorage.getItem("user");
-  const id = window.localStorage.getItem("id");
 
-  const [reloadData, setReloadData] = useState(false);
-  useEffect(() => {
-    dispatch(getWishUser(id));
-  }, [dispatch, id]);
-  console.log(cart);
-  const superReload = () => {
-    console.log("Reload ha sido invocado");
-    setReloadData(!reloadData);
-  };
   const handleRemoveItem = (plainid) => {
     dispatch(removeItemWL(plainid));
     // dispatch(removeAllItemsFromWish(id));
@@ -120,11 +104,11 @@ function WishList() {
                     Detalles de la Whishlist
                   </h3>
                   {
-                    <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">
+                    <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">
                       Personas{" "}
                     </h3>
                   }
-                  <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">
+                  <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">
                     Total
                   </h3>
                 </div>
